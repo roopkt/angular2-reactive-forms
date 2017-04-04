@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
+import { User } from "app/signup-form/signup.interface";
 
 @Component({
   selector: 'signup-form',
@@ -16,5 +17,8 @@ user:FormGroup
         confirm: new FormControl('')
       })
     })
+  }
+  onSubmit({value,valid}:{value:User,valid:boolean}){
+    console.log(value, valid);
   }
 }
