@@ -26,3 +26,12 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## form control
+
+FormControl is a class that powers an individual form control, tracks the value and validation status, whilst offering a wide set of public API methods.
+
+## form groupp
+
+FormGroup is a group of FormControl instances, also keeps track of the value and validation status for the said group, also offers public APIs.
