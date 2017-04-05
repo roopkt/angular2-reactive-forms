@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import {FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { User } from "app/signup-form/signup.interface";
 
 @Component({
@@ -8,7 +8,24 @@ import { User } from "app/signup-form/signup.interface";
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit {
+    
+
 user:FormGroup
+constructor(private fb :FormBuilder){
+
+}
+ngOnInit(): void {
+      this.user = this.fb.group({
+        name:['',[ Validators.required, Validators.minLength(2)]],
+        account: this.fb.group({
+          email: ['',Validators.required],
+          confirm:  ['',Validators.required]
+        })
+      });
+
+    }
+
+/*
   ngOnInit()   {
     this.user = new FormGroup({
       name: new FormControl('',[Validators.required, Validators.minLength(2)]),
@@ -18,6 +35,9 @@ user:FormGroup
       })
     })
   }
+  */
+
+
   onSubmit({value,valid}:{value:User,valid:boolean}){
     console.log(value, valid);
   }
